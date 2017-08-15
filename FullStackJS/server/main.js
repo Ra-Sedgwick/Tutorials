@@ -1,11 +1,9 @@
-let Express = require('express');
+var express = require('express');
 
-let app = new Express();
+var app = new express();
 
-app.get('/', function(request, result) {
-    result.render('./../app/index.ejs', {});
+app.get('/',function(req,res){
+    res.render('./../app/index.ejs',{});
 })
-.use(Express.static(__dirname + '/../.tmp'))
+.use(express.static(__dirname + '/../.tmp'))
 .listen(7777);
-
-
