@@ -10,13 +10,23 @@
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.18.13",
+    "browserify": "^14.4.0",
     "ejs": "^2.5.7",
     "eslint": "^4.4.1",
     "express": "^4.15.4",
     "gulp": "^3.9.1",
-    "gulp-live-server": "0.0.31"
+    "gulp-live-server": "0.0.31",
+    "react": "^15.6.1",
+    "reactify": "^1.1.1",
+    "rectify": "^0.1.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
-    "eslint-config-google": "^0.9.1"
+    "babel-eslint": "^7.2.3",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.2.1"
   }
 }
