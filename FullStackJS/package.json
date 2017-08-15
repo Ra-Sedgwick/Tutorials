@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "babel": "^5.5.6",
+    "babel-eslint": "^7.2.3",
     "babelify": "^6.1.2",
     "body-parser": "^1.12.4",
     "browser-sync": "^2.7.12",
@@ -12,7 +13,7 @@
     "cors": "^2.7.1",
     "ejs": "^2.3.1",
     "express": "^4.13.0",
-    "guid": "^0.0.12",
+    "guid": "0.0.12",
     "gulp": "^3.9.0",
     "gulp-live-server": "0.0.14",
     "jquery": "^2.1.4",
