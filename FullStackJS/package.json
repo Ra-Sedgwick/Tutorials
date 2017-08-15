@@ -11,9 +11,12 @@
   "dependencies": {
     "browser-sync": "^2.18.13",
     "ejs": "^2.5.7",
+    "eslint": "^4.4.1",
     "express": "^4.15.4",
     "gulp": "^3.9.1",
     "gulp-live-server": "0.0.31"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
+  }
 }
