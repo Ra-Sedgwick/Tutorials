@@ -102,6 +102,10 @@ a {
   margin: 10px auto;
 }
 
+#battle {
+  margin-left: 26%;
+}
+
 .button:hover:enabled {
   background: linear-gradient(#1a1a1a, #0a0a0a);
   color: #fff;
