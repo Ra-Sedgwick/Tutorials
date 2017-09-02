@@ -1,6 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+function PlayerPreview (props) {
+  return (
+    <div>
+      <div className='column'>
+        <img
+          className='avatar'
+          src={props.avatar}
+          alt={'Avatar for ' + props.username}
+        />
+        <h2 className='username'>@{props.username}</h2>
+        <button
+          className='reset'
+          onClick={props.onReset.bind(null, props.id)}
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+  );
+}
+
+PlayerPreview.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired
+};
+
 class PlayerInput extends React.Component {
   constructor(props) {
     super(props);
@@ -59,12 +87,11 @@ class PlayerInput extends React.Component {
   }
 }
 
-PlayerInput.propTypes ={
+PlayerInput.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired
-}
-
+};
 
 export default class Battle extends React.Component {
   constructor(props) {
@@ -73,18 +100,28 @@ export default class Battle extends React.Component {
     this.state = {
       playOneName: '',
       playTwoName: '',
-      plyaerOneImage: null,
+      playerOneImage: null,
       playerTwoImage: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleSubmit (id, username) {
     this.setState(function () {
       let newState = {};
       newState[id + 'Name'] = username;
-      newState[id+ 'Image'] = 'https://github.com/' + username + '.png?size=200';
+      newState[id +'Image'] = 'https://github.com/' + username + '.png?size=200';
+      return newState;
+    });
+  }
+
+  handleReset (id) {
+    this.setState(function () {
+      let newState = {};
+      newState[id + 'Name'] = '';
+      newState[id+ 'Image'] = null;
       return newState;
     });
   }
@@ -93,22 +130,43 @@ export default class Battle extends React.Component {
 
     let playerOneName = this.state.playerOneName;
     let playerTwoName = this.state.playerTwoName;
+    let playerOneImage = this.state.playerOneImage;
+    let playerTwoImage = this.state.playerTwoImage;
 
     return (
       <div>
         <div className='row'>
+
           {!playerOneName && 
             <PlayerInput 
               id='playerOne' 
               label='Player One' 
               onSubmit={this.handleSubmit}
             />}
+
+          {playerOneImage != null && 
+            <PlayerPreview 
+              avatar={playerOneImage}
+              username={playerOneName}
+              onReset={this.handleReset}
+              id='playerOne'
+            />}
+          
           {!playerTwoName && 
             <PlayerInput 
               id='playerTwo'
               label='Player Two'
               onSubmit={this.handleSubmit}
             />}
+
+          {playerTwoImage != null && 
+            <PlayerPreview 
+              avatar={playerTwoImage}
+              username={playerTwoName}
+              onReset={this.handleReset}
+              id='playerTwo'
+            />}
+
         </div>
       </div>
     );
