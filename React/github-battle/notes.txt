@@ -1,0 +1,2 @@
+string parsgin pkg
+  npm install --save query-string
