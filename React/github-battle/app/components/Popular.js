@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../utils/api';
+import Loading from './Loading';
 
 function SelectLanguage (props) {
 
@@ -103,7 +104,7 @@ class Popular extends React.Component {
           onSelect={this.updateLanguage}
         />
         {!this.state.repos 
-          ? <p>Loading...</p>
+          ? <Loading />
           : <RepoGrid repos={this.state.repos} />
         }
       </div>
