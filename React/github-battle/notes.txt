@@ -1,2 +1,5 @@
-string parsgin pkg
+String parsing pkg
   npm install --save query-string
+
+Print State
+  <div>{}JSON.stringify(this.state, null, 2)}</div>    
